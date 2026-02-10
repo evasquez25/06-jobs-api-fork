@@ -8,6 +8,7 @@ import {
 } from "./index.js";
 import { showLoginRegister } from "./loginRegister.js";
 import { showAddEdit } from "./addEdit.js";
+import { handleDelete } from "./delete.js";
 
 let jobsDiv = null;
 let jobsTable = null;
@@ -34,6 +35,10 @@ export const handleJobs = () => {
         console.log("edit button clicked");
         message.textContent = "";
         showAddEdit(e.target.dataset.id);
+      } else if (e.target.classList.contains("deleteButton") && inputEnabled) {
+        console.log("delete button clicked");
+        message.textContent = "";
+        handleDelete(e.target.dataset.id);
       }
     }
   });
